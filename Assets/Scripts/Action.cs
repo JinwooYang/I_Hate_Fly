@@ -1,20 +1,38 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class Action : MonoBehaviour 
+
+public abstract class Action 
 {
+    private bool _Finish = false;
 
-	// Use this for initialization
-	void Start () 
+
+    public void ActionStart(Actor actor)
     {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () 
-    {
-	
+        OnActionStart(actor);
+        _Finish = false;
 	}
 
-    public abstract string GetClassName();
+
+    public void ActionUpdate(Actor actor) 
+    {
+        OnActionUpdate(actor);
+	}
+
+
+    protected abstract void OnActionStart(Actor actor);
+
+
+    protected abstract void OnActionUpdate(Actor actor);
+
+
+    protected void ActionFinish()
+    {
+        _Finish = true;
+    }
+
+    public bool IsFinish()
+    {
+        return _Finish;
+    }
 }

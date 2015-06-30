@@ -2,45 +2,46 @@
 using System.Collections;
 using System.Collections.Generic;
 
-//public class Sequence : Action 
-//{
-//    public List<Action> _InnerAction;
+public class Sequence : Action
+{
+    private List<Action> _ActionList = new List<Action>();
 
-//    private int curActionIndex = 0;
+    private int _CurActionIndex = 0;
 
-//    public void Init(params Action[] args)
-//    {
-//        for (int i = 0; i < args.Length; ++i)
-//        {
-//            _InnerAction.Add(args[i]);
-//        }
-//    }
+    public Sequence(params Action[] actions)
+    {
+        _ActionList.AddRange(actions);
+    }
 
-//    // Use this for initialization
-//    void Start () 
-//    {
-//        gameObject.AddComponent(_InnerAction[curActionIndex].GetType());
-//    }
-	
-//    // Update is called once per frame
-//    void Update () 
-//    {
-//        if(_InnerAction[curActionIndex] == null)
-//        {
-//            if(++curActionIndex < _InnerAction.Count)
-//            {
-//                gameObject.AddComponent(_InnerAction[curActionIndex].GetType());
-//            }
-//            else
-//            {
-//                Destroy(this);
-//            }
-//        }
-//    }
+    protected override void OnActionStart(Actor actor)
+    {
+        _CurActionIndex = 0;
 
+        _ActionList[_CurActionIndex].ActionStart(actor);
+    }
 
-//    public override string GetClassName()
-//    {
-//        return "Sequence";
-//    }
-//}
+    protected override void OnActionUpdate(Actor actor)
+    {
+        _ActionList[_CurActionIndex].ActionUpdate(actor);
+
+        if(_ActionList[_CurActionIndex].IsFinish())
+        {
+            if(++_CurActionIndex < _ActionList.Count)
+            {
+                _ActionList[_CurActionIndex].ActionStart(actor);
+            }
+            else
+            {
+                ActionFinish();
+            }
+        }
+    }
+
+    //void OnDestroy()
+    //{
+    //    foreach(Action action in _ActionList)
+    //    {
+    //        Destroy(action);
+    //    }
+    //}
+}

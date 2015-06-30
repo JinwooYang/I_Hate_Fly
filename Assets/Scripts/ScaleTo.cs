@@ -3,36 +3,31 @@ using System.Collections;
 
 public class ScaleTo : Action 
 {
-    public float _Duration;
-    public Vector3 _StartScale, _TargetScale;
+    private float _Duration;
+
+    private Vector3 _StartScale, _TargetScale;
 
     private Vector3 _DeltaScale;
 
-    public ScaleTo(float duration, Vector3 startScale, Vector3 targetScale)
-    {
-        Init(duration, startScale, targetScale);
-    }
 
-    public void Init(float duration, Vector3 startScale, Vector3 targetScale)
+    public ScaleTo(float duration, Vector3 targetScale)
     {
         _Duration = duration;
-        _StartScale = startScale;
         _TargetScale = targetScale;
     }
 
-	// Use this for initialization
-	void Start () 
+    protected override void OnActionStart(Actor actor)
     {
-        transform.localScale = _StartScale;
+        _StartScale = actor.transform.localScale;
         _DeltaScale = (_TargetScale - _StartScale) / (_Duration * 60.0f);
     }
-	
-	// Update is called once per frame
-	void Update () 
-    {
-        transform.localScale += _DeltaScale * Time.deltaTime * 60.0f;
 
-        Vector3 curScale = transform.localScale;
+
+    protected override void OnActionUpdate(Actor actor) 
+    {
+        actor.transform.localScale += _DeltaScale * Time.deltaTime * 60.0f;
+
+        Vector3 curScale = actor.transform.localScale;
 
         if(_StartScale.x <= _TargetScale.x && curScale.x >= _TargetScale.x ||
             _StartScale.x > _TargetScale.x && curScale.x < _TargetScale.x)
@@ -50,16 +45,13 @@ public class ScaleTo : Action
             curScale.z = _TargetScale.z;
         }
 
-        transform.localScale = curScale;
+        actor.transform.localScale = curScale;
 
         if(curScale == _TargetScale)
         {
-            Destroy(this);
+            //Destroy(this);
+            ActionFinish();
         }
 	}
 
-    public override string GetClassName()
-    {
-        return "ScaleTo";
-    }
 }
