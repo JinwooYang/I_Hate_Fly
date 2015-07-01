@@ -53,19 +53,22 @@ public class Fly : MonoBehaviour
 
     void OnMouseDown()
     {
-        const int score = 10;
+        if(!_PlaySceneManager.IsGameOver())
+        {
+            const int score = 10;
 
-        Destroy(this.gameObject);
+            Destroy(this.gameObject);
         
-        FlyDead flyDead = Instantiate(_FlyDead, transform.position, new Quaternion(0.0f, 0.0f, 0.0f, 0.0f)) as FlyDead;
-        flyDead.gameObject.transform.localScale = transform.localScale;
+            FlyDead flyDead = Instantiate(_FlyDead, transform.position, new Quaternion(0.0f, 0.0f, 0.0f, 0.0f)) as FlyDead;
+            flyDead.gameObject.transform.localScale = transform.localScale;
 
-        Text scoreOnFly = Instantiate(_ScoreOnFly, transform.position, new Quaternion(0.0f, 0.0f, 0.0f, 0.0f)) as Text;
-        scoreOnFly.text = "+" + score;
-        GameObject canvas = GameObject.Find("Canvas");
-        scoreOnFly.transform.SetParent(canvas.transform);
+            Text scoreOnFly = Instantiate(_ScoreOnFly, transform.position, new Quaternion(0.0f, 0.0f, 0.0f, 0.0f)) as Text;
+            scoreOnFly.text = "+" + score;
+            GameObject canvas = GameObject.Find("Canvas");
+            scoreOnFly.transform.SetParent(canvas.transform);
 
-        _PlaySceneManager.AddScore(score);
+            _PlaySceneManager.AddScore(score);
+        }
     }
 
 

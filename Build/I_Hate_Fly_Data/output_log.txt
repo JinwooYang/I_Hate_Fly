@@ -16,7 +16,7 @@ Platform assembly: C:\Users\Jinwoo\Documents\I_Hate_Fly\Build\I_Hate_Fly_Data\Ma
 Loading C:\Users\Jinwoo\Documents\I_Hate_Fly\Build\I_Hate_Fly_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Jinwoo\Documents\I_Hate_Fly\Build\I_Hate_Fly_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Jinwoo\Documents\I_Hate_Fly\Build\I_Hate_Fly_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.041 seconds
+- Completed reload, in  0.045 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -24,14 +24,20 @@ desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 Platform assembly: C:\Users\Jinwoo\Documents\I_Hate_Fly\Build\I_Hate_Fly_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Jinwoo\Documents\I_Hate_Fly\Build\I_Hate_Fly_Data\Managed\System.dll (this message is harmless)
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 0.294702 ms
+UnloadTime: 0.380446 ms
 
 Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 299.
-Total: 0.195199 ms (FindLiveObjects: 0.011413 ms CreateObjectMapping: 0.011706 ms MarkObjects: 0.152472 ms  DeleteObjects: 0.019315 ms)
+Total: 0.204270 ms (FindLiveObjects: 0.020778 ms CreateObjectMapping: 0.010242 ms MarkObjects: 0.148373 ms  DeleteObjects: 0.024290 ms)
 
 Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 3.499549 ms
+UnloadTime: 7.257156 ms
 
 Unloading 71 unused Assets to reduce memory usage. Loaded Objects now: 222.
-Total: 0.249048 ms (FindLiveObjects: 0.019315 ms CreateObjectMapping: 0.021656 ms MarkObjects: 0.175884 ms  DeleteObjects: 0.031313 ms)
+Total: 0.333329 ms (FindLiveObjects: 0.024582 ms CreateObjectMapping: 0.027801 ms MarkObjects: 0.239973 ms  DeleteObjects: 0.040385 ms)
+
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 0.918045 ms
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 303.
+Total: 0.629492 ms (FindLiveObjects: 0.038044 ms CreateObjectMapping: 0.049165 ms MarkObjects: 0.508041 ms  DeleteObjects: 0.033362 ms)
 

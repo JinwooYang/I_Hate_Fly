@@ -18,9 +18,13 @@ public class PlaySceneManager : MonoBehaviour
 
     private FlyCreator _FCInstance;
 
+    private bool _GameOver;
+
 	// Use this for initialization
 	void Start () 
     {
+        _GameOver = false;
+
         _Score = 0;
         _RemainTime = 60.0f;
 
@@ -39,6 +43,8 @@ public class PlaySceneManager : MonoBehaviour
     {
         if(_RemainTime <= 0.0f)
         {
+            _GameOver = true;
+
             this.enabled = false;
 
             Destroy(_FCInstance);
@@ -102,5 +108,11 @@ public class PlaySceneManager : MonoBehaviour
     public void BtnRetryClicked()
     {
         Application.LoadLevel("PlayScene");
+    }
+
+
+    public bool IsGameOver()
+    {
+        return _GameOver;
     }
 }
