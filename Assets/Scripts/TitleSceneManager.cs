@@ -13,6 +13,8 @@ public class TitleSceneManager : MonoBehaviour
         Invoke("RunPoopAction", 0.5f);
         Invoke("RunTitleAction", 1.0f);
         Invoke("RunGameStartButtonAction", 1.2f);
+
+        ActionManager.GetInstance();
 	}
 	
 	// Update is called once per frame
