@@ -7,9 +7,13 @@ public class Poop : MonoBehaviour
 
     private Vector2 _OrgPos, _OrgScale;
 
+    private new Transform transform;
+
 	// Use this for initialization
 	void Start () 
     {
+        transform = base.transform;
+
         _Actor = GetComponent<Actor>();
 
         _OrgPos = transform.position;

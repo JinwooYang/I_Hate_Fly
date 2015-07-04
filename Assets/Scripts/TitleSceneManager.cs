@@ -6,15 +6,19 @@ public class TitleSceneManager : MonoBehaviour
     public Poop _Poop;
     public Title _Title;
     public GameStartButton _GameStartButton;
-
-	// Use this for initialization
+    
+    private new Transform transform;
+    
+    // Use this for initialization
 	void Start () 
     {
+        transform = base.transform;
+
         Invoke("RunPoopAction", 0.5f);
         Invoke("RunTitleAction", 1.0f);
         Invoke("RunGameStartButtonAction", 1.2f);
 
-        ActionManager.GetInstance();
+        //ActionManager.GetInstance();
 	}
 	
 	// Update is called once per frame

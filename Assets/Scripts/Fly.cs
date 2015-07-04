@@ -20,10 +20,13 @@ public class Fly : MonoBehaviour
 
     private PlaySceneManager _PlaySceneManager;
 
+    private new Transform transform;
 
 	// Use this for initialization
 	void Start () 
     {
+        transform = base.transform;
+
         _PlaySceneManager = GameObject.Find("PlaySceneManager").GetComponent<PlaySceneManager>();
 
         _Actor = GetComponent<Actor>();

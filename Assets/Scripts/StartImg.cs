@@ -3,6 +3,8 @@ using System.Collections;
 
 public class StartImg : MonoBehaviour 
 {
+    private new Transform transform;
+
     private Actor _Actor;
 
     private Vector2 _OrgPos;
@@ -12,6 +14,8 @@ public class StartImg : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
+        transform = base.transform;
+
 	    _Actor = GetComponent<Actor>();
         _SprRenderer = GetComponent<SpriteRenderer>();
 
