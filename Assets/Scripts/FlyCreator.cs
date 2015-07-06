@@ -11,13 +11,10 @@ public class FlyCreator : MonoBehaviour
     public float _CreateMinX, _CreateMaxX;
     public float _CreateMinY, _CreateMaxY;
 
-    private new Transform transform;
 
 	// Use this for initialization
 	void Start () 
     {
-        transform = base.transform;
-
         StartCoroutine("FlyCreate");
     }
 	

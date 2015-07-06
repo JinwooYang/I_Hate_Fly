@@ -5,13 +5,9 @@ public class ScoreOnFly : MonoBehaviour
 {
     private Actor _Actor;
 
-    private new Transform transform;
-
 	// Use this for initialization
 	void Start () 
     {
-        transform = base.transform;
-
         _Actor = GetComponent<Actor>();
 
         transform.localScale = new Vector2(0.0f, 0.0f);

@@ -10,13 +10,9 @@ public class SceneFadeInOut : MonoBehaviour
     private SpriteRenderer _SprRenderer;
     private Actor _Actor;
 
-    private new Transform transform;
-
 	// Use this for initialization
 	void Start () 
     {
-        transform = base.transform;
-
         _SprRenderer = GetComponent<SpriteRenderer>();
         _Actor = GetComponent<Actor>();
 

@@ -5,12 +5,9 @@ public class GameArea : MonoBehaviour
 {
     public PlaySceneManager _PlaySceneManager;
 
-    private new Transform transform;
-
 	// Use this for initialization
 	void Start () 
     {
-        transform = base.transform;
 	}
 	
 	// Update is called once per frame

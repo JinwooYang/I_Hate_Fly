@@ -3,15 +3,11 @@ using System.Collections;
 
 public class Title : MonoBehaviour 
 {
-    private new Transform transform;
-
     private Actor _Actor = null;
 
 	// Use this for initialization
 	void Start () 
     {
-        transform = base.transform;
-
         _Actor = GetComponent<Actor>();
         transform.localScale = new Vector2(0.0f, 0.0f);
     }

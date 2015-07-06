@@ -6,13 +6,9 @@ public class ScoreDialog : MonoBehaviour
 {
     public int _Score;
 
-    private new Transform transform;
-
 	// Use this for initialization
 	void Start () 
     {
-        transform = base.transform;
-
         Text scoreText = GameObject.Find("ScoreDialogText").GetComponent<Text>();
         scoreText.text = "" + _Score;
 

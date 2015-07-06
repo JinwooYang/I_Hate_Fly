@@ -20,13 +20,9 @@ public class PlaySceneManager : MonoBehaviour
 
     private bool _GameOver;
 
-    private new Transform transform;
-
 	// Use this for initialization
 	void Start () 
     {
-        transform = base.transform;
-
         _GameOver = false;
 
         _Score = 0;

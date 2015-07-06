@@ -4,13 +4,10 @@ using System.Collections;
 public class FlyDead : MonoBehaviour 
 {
     public float _FallSpeed;
-    
-    private new Transform transform;
-    
-    // Use this for initialization
+
+	// Use this for initialization
 	void Start () 
     {
-        transform = base.transform;
 	}
 	
 	// Update is called once per frame
