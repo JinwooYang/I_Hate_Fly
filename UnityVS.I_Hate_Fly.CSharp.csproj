@@ -65,32 +65,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Action.cs" />
-    <Compile Include="Assets\Scripts\Actor.cs" />
-    <Compile Include="Assets\Scripts\CursorChanger.cs" />
-    <Compile Include="Assets\Scripts\DelayTime.cs" />
-    <Compile Include="Assets\Scripts\Fly.cs" />
-    <Compile Include="Assets\Scripts\FlyCreator.cs" />
-    <Compile Include="Assets\Scripts\FlyDead.cs" />
-    <Compile Include="Assets\Scripts\GameArea.cs" />
-    <Compile Include="Assets\Scripts\GameStartButton.cs" />
-    <Compile Include="Assets\Scripts\MoveTo.cs" />
-    <Compile Include="Assets\Scripts\PlaySceneManager.cs" />
-    <Compile Include="Assets\Scripts\Poop.cs" />
-    <Compile Include="Assets\Scripts\RepeatForever.cs" />
-    <Compile Include="Assets\Scripts\ScaleTo.cs" />
-    <Compile Include="Assets\Scripts\SceneFadeInOut.cs" />
-    <Compile Include="Assets\Scripts\ScoreDialog.cs" />
-    <Compile Include="Assets\Scripts\ScoreOnFly.cs" />
-    <Compile Include="Assets\Scripts\SelfRemove.cs" />
-    <Compile Include="Assets\Scripts\Sequence.cs" />
-    <Compile Include="Assets\Scripts\SinMove.cs" />
-    <Compile Include="Assets\Scripts\StartImg.cs" />
-    <Compile Include="Assets\Scripts\TargetedAction.cs" />
-    <Compile Include="Assets\Scripts\TintTo.cs" />
-    <Compile Include="Assets\Scripts\Title.cs" />
-    <Compile Include="Assets\Scripts\TitleSceneManager.cs" />
-    <Compile Include="Assets\Scripts\Vibration.cs" />
+    <Compile Include="Assets\Scripts\GameStartButtonAC.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
 </Project>
