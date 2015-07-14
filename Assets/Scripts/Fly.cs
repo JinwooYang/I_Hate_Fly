@@ -1,49 +1,79 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum MoveDirection { LEFT, RIGHT };
+
 public class Fly : MonoBehaviour 
 {
     public float speed;
     public float moveHeight;
 
-    Transform cachedTransform;
-
-    enum MoveDirection { LEFT, RIGHT};
     MoveDirection moveDir;
+
+    Transform cachedTransform;
 
     float startPosY;
     float degAngle = 0f;
 
-    public void Init(Vector2 position, float speed, float moveHeight)
+    public void Init(float posX, float posY, float newSpeed, float newMoveHeight, MoveDirection newDirection)
     {
-        cachedTransform.position = position;
-        this.speed = speed;
-        this.moveHeight = moveHeight;
+        Vector3 tempVector = cachedTransform.position;
+        tempVector.x = posX;
+        tempVector.y = posY;
+        cachedTransform.position = tempVector;
+
+        startPosY = posY;
+
+        speed = newSpeed;
+
+        moveHeight = newMoveHeight;
+
+        moveDir = newDirection;
+
+        if (moveDir == MoveDirection.LEFT)
+        {
+            Vector3 tempScale = cachedTransform.localScale;
+            tempScale.x = -tempScale.x;
+            cachedTransform.localScale = tempScale;
+        }
+
+        gameObject.SetActive(true);
     }
 
 	void Awake () 
     {
         cachedTransform = base.transform;
-        startPosY = cachedTransform.position.y;
-        moveDir = (Random.Range(0, 2) == 0) ? MoveDirection.LEFT : MoveDirection.RIGHT;
 	}
 	
 	void Update () 
     {
-        if(moveDir == MoveDirection.LEFT)
+        switch(moveDir)
         {
-            cachedTransform.Translate(Vector2.left * speed);
-        }
-        else if (moveDir == MoveDirection.RIGHT)
-        {
-            cachedTransform.Translate(Vector2.right * speed);
-        }
-        else
-        {
-            Debug.Assert(false, "moveDir변수에 예상하지 못한 값 발견");
+            case MoveDirection.LEFT:
+                cachedTransform.Translate(Vector2.left * speed);
+                break;
+
+            case MoveDirection.RIGHT:
+                cachedTransform.Translate(Vector2.right * speed);
+                break;
+
+            default:
+                Debug.Assert(false, "moveDir변수에 예상하지 못한 값 발견");
+                break;
         }
 
         float posY = Mathf.Sin(degAngle * Mathf.Deg2Rad) * moveHeight + startPosY;
-        cachedTransform.position.Set(cachedTransform.position.x, posY, cachedTransform.position.z);
+
+        Vector3 tempVector = cachedTransform.position;
+        tempVector.y = posY;
+        cachedTransform.position = tempVector;
+
+        degAngle += 10f;
+
+        if(degAngle > 360f)
+        {
+            degAngle -= 360f;
+        }
 	}
 }
+ 

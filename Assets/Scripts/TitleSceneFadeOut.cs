@@ -1,15 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameStartAnimation : MonoBehaviour 
+public class TitleSceneFadeOut : MonoBehaviour 
 {
-    Animator anim;
-
-	void Awake () 
-    {
-        anim = GetComponent<Animator>();
-	}
-	
 	void ChangeScene () 
     {
         Application.LoadLevel("PlayScene");
