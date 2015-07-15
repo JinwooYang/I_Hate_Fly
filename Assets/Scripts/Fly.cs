@@ -7,6 +7,7 @@ public class Fly : MonoBehaviour
 {
     public float speed;
     public float moveHeight;
+    public float fallSpeed = 8f;
 
     MoveDirection moveDir;
 
@@ -15,7 +16,12 @@ public class Fly : MonoBehaviour
     float startPosY;
     float degAngle = 0f;
 
-    public void Init(float posX, float posY, float newSpeed, float newMoveHeight, MoveDirection newDirection)
+    Animator anim;
+
+    bool dead = false;
+
+
+    public void Init(float posX, float posY, float newScale, float newSpeed, float newMoveHeight, MoveDirection newDirection)
     {
         Vector3 tempVector = cachedTransform.position;
         tempVector.x = posX;
@@ -33,47 +39,74 @@ public class Fly : MonoBehaviour
         if (moveDir == MoveDirection.LEFT)
         {
             Vector3 tempScale = cachedTransform.localScale;
-            tempScale.x = -tempScale.x;
+            tempScale.x = -newScale;
+            tempScale.y = newScale;
             cachedTransform.localScale = tempScale;
         }
+        else
+        {
+            Vector3 tempScale = cachedTransform.localScale;
+            tempScale.x = newScale;
+            tempScale.y = newScale;
+            cachedTransform.localScale = tempScale;
+        }
+
+        dead = false;
 
         gameObject.SetActive(true);
     }
 
+
 	void Awake () 
     {
         cachedTransform = base.transform;
+        anim = GetComponent<Animator>();
 	}
 	
+
 	void Update () 
     {
-        switch(moveDir)
+        if (!dead)
         {
-            case MoveDirection.LEFT:
-                cachedTransform.Translate(Vector2.left * speed);
-                break;
+            switch (moveDir)
+            {
+                case MoveDirection.LEFT:
+                    cachedTransform.Translate(Vector2.left * speed);
+                    break;
 
-            case MoveDirection.RIGHT:
-                cachedTransform.Translate(Vector2.right * speed);
-                break;
+                case MoveDirection.RIGHT:
+                    cachedTransform.Translate(Vector2.right * speed);
+                    break;
 
-            default:
-                Debug.Assert(false, "moveDir변수에 예상하지 못한 값 발견");
-                break;
+                default:
+                    Debug.Assert(false, "moveDir변수에 예상하지 못한 값 발견");
+                    break;
+            }
+
+            float posY = Mathf.Sin(degAngle * Mathf.Deg2Rad) * moveHeight + startPosY;
+
+            Vector3 tempVector = cachedTransform.position;
+            tempVector.y = posY;
+            cachedTransform.position = tempVector;
+
+            degAngle += 10f;
+
+            if (degAngle > 360f)
+            {
+                degAngle -= 360f;
+            }
         }
-
-        float posY = Mathf.Sin(degAngle * Mathf.Deg2Rad) * moveHeight + startPosY;
-
-        Vector3 tempVector = cachedTransform.position;
-        tempVector.y = posY;
-        cachedTransform.position = tempVector;
-
-        degAngle += 10f;
-
-        if(degAngle > 360f)
+        else
         {
-            degAngle -= 360f;
+            cachedTransform.Translate(Vector3.down * fallSpeed);
         }
 	}
+
+
+    void OnMouseDown()
+    {
+        dead = true;
+        anim.SetBool("IsDead", true);
+    }
 }
  

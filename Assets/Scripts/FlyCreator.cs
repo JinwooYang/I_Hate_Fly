@@ -34,6 +34,7 @@ public class FlyCreator : MonoBehaviour
     public Vector2 spawnMin, spawnMax;
 
     public float minSpeed, maxSpeed;
+    public float minScale, maxScale;
     public float minMoveHeight, maxMoveHeight;
 
     List<Fly> flyPool = new List<Fly>();
@@ -112,9 +113,10 @@ public class FlyCreator : MonoBehaviour
         }
 
         float posY = Random.Range(spawnMin.y, spawnMax.y);
+        float scale = Random.Range(minScale, maxScale);
         float speed = Random.Range(minSpeed, maxSpeed);
         float moveHeight = Random.Range(minMoveHeight, maxMoveHeight);
 
-        fly.Init(posX, posY, speed, moveHeight, moveDir);
+        fly.Init(posX, posY, scale, speed, moveHeight, moveDir);
     }
 }
