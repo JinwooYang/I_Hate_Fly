@@ -16,7 +16,7 @@ Platform assembly: C:\Users\Jinwoo\Desktop\I_Hate_Fly\Build\I_Hate_Fly_Data\Mana
 Loading C:\Users\Jinwoo\Desktop\I_Hate_Fly\Build\I_Hate_Fly_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Jinwoo\Desktop\I_Hate_Fly\Build\I_Hate_Fly_Data\Managed\UnityEngine.Analytics.dll (this message is harmless)
 Loading C:\Users\Jinwoo\Desktop\I_Hate_Fly\Build\I_Hate_Fly_Data\Managed\UnityEngine.Analytics.dll into Unity Child Domain
-- Completed reload, in  0.041 seconds
+- Completed reload, in  0.226 seconds
 desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
@@ -24,8 +24,8 @@ desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
 Platform assembly: C:\Users\Jinwoo\Desktop\I_Hate_Fly\Build\I_Hate_Fly_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Jinwoo\Desktop\I_Hate_Fly\Build\I_Hate_Fly_Data\Managed\System.dll (this message is harmless)
 Unloading 3 Unused Serialized files (Serialized files now loaded: 0)
-UnloadTime: 2.688029 ms
+UnloadTime: 8.817940 ms
 
 Unloading 22 unused Assets to reduce memory usage. Loaded Objects now: 196.
-Total: 0.285045 ms (FindLiveObjects: 0.009657 ms CreateObjectMapping: 0.007023 ms MarkObjects: 0.124963 ms  DeleteObjects: 0.142522 ms)
+Total: 0.841671 ms (FindLiveObjects: 0.023997 ms CreateObjectMapping: 0.023704 ms MarkObjects: 0.315773 ms  DeleteObjects: 0.476439 ms)
 

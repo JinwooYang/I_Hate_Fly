@@ -24,6 +24,8 @@ public class FlyCreator : MonoBehaviour
 {
     public Fly flyTemplate;
 
+    public PlaySceneManager playSceneMgr;
+
     //최초 생성해 둘 파리의 갯수
     public int beginCreateNum;
 
@@ -41,7 +43,6 @@ public class FlyCreator : MonoBehaviour
 
     float timer = 0f;
 
-
 	void Awake () 
     {
         flyPool.Capacity = beginCreateNum;
@@ -55,19 +56,22 @@ public class FlyCreator : MonoBehaviour
 
     void Update()
     {
-        timer += Time.deltaTime;
-
-        if (timer > delay)
+        if (!playSceneMgr.IsGameOver())
         {
-            if (Random.Range(0f, 100f) < createProbability)
+            timer += Time.deltaTime;
+
+            if (timer > delay)
             {
-                timer = 0f;
+                if (Random.Range(0f, 100f) < createProbability)
+                {
+                    timer = 0f;
 
-                Fly fly = FindNotActiveFlyInstance();
+                    Fly fly = FindNotActiveFlyInstance();
 
-                fly = (fly != null) ? fly : AddFlyInstanceInPool();
+                    fly = (fly != null) ? fly : AddFlyInstanceInPool();
 
-                FlyInitAndEnable(fly);
+                    FlyInitAndEnable(fly);
+                }
             }
         }
     }

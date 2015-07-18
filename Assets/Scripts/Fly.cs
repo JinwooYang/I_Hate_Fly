@@ -3,7 +3,7 @@ using System.Collections;
 
 public enum MoveDirection { LEFT, RIGHT };
 
-public class Fly : MonoBehaviour 
+public class Fly : MonoBehaviour
 {
     public float speed;
     public float moveHeight;
@@ -20,6 +20,7 @@ public class Fly : MonoBehaviour
 
     bool dead = false;
 
+    PlaySceneManager playSceneMgr;
 
     public void Init(float posX, float posY, float newScale, float newSpeed, float newMoveHeight, MoveDirection newDirection)
     {
@@ -57,14 +58,15 @@ public class Fly : MonoBehaviour
     }
 
 
-	void Awake () 
+    void Awake()
     {
         cachedTransform = base.transform;
         anim = GetComponent<Animator>();
-	}
-	
+        playSceneMgr = Object.FindObjectOfType<PlaySceneManager>();
+    }
 
-	void Update () 
+
+    void Update()
     {
         if (!dead)
         {
@@ -100,13 +102,17 @@ public class Fly : MonoBehaviour
         {
             cachedTransform.Translate(Vector3.down * fallSpeed);
         }
-	}
+    }
 
 
     void OnMouseDown()
     {
-        dead = true;
-        anim.SetBool("IsDead", true);
+        if (!playSceneMgr.IsGameOver())
+        {
+            dead = true;
+            anim.SetBool("IsDead", true);
+            playSceneMgr.AddScore(10);
+        }
     }
 }
  

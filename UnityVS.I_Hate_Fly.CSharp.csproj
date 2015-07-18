@@ -66,10 +66,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\DestroyByContact.cs" />
+    <Compile Include="Assets\ScoreDialog.cs" />
     <Compile Include="Assets\Scripts\Fly.cs" />
     <Compile Include="Assets\Scripts\FlyCreator.cs" />
     <Compile Include="Assets\Scripts\PlayButton.cs" />
     <Compile Include="Assets\Scripts\PlaySceneFadeIn.cs" />
+    <Compile Include="Assets\Scripts\PlaySceneManager.cs" />
     <Compile Include="Assets\Scripts\TitleSceneFadeOut.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2013\UnityVS.CSharp.targets" />
